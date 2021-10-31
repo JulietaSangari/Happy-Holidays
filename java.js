@@ -15,7 +15,7 @@ const mostrarPaquetes = () => {
                     <h5 class="card-title">${paquete.nombre}</h5>
                     <p class="card-text">${paquete.descripcion}</p>
                     <p class="card-text"><b>$ ${paquete.precio}</b></p>
-                    <a href="#" class="btn btn-primary" onclick=obtenerCantidadProductosComprados(${paquete.id})>Comprar</a>
+                    <a href="#" class="btn btn-primary" onclick=obtenerCantidadPaquetesComprados(${paquete.id})>Comprar</a>
                 </div>
             </div>
             
