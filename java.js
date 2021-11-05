@@ -1,28 +1,35 @@
 
 const paquetes = [
-    {id:0, nombre:'Mexico', descripcion:'Viaje a Cancun, aereo ida y vuelta mas all inclusive 7 noches', precio:100000, imagen:src="imagenes/cancun.jpg"},
-    {id:1, nombre:'Europa', descripcion:'Viaje a Italia Roma hotel 3 estrellas 5 noches aereo ida y vuelta', precio:380000, imagen:src="imagenes/roma.jpg"},
-    {id:2, nombre:'EEUU', descripcion: 'Viaje a miami ida y vuelta hotel all inclusive 10 noches', precio:150000, imagen:src="imagenes/miami.jpg"},
-    {id:3, nombre:'Argentina', descripcion:'Viaje a Bariloche ida y vuelta traslados incluidos hotel holiday inn 6 noches', precio:85000, imagen:src="imagenes/bariloche.jpg"}
+    {id:0, nombre:'Mexico', descripcion:'Viaje a Cancun, aereo ida y vuelta mas all inclusive 7 noches', precio:100000, imagen:src="imagenes/cancun.jpg", grilla:"g-col-6 g-col-md-4"},
+    {id:1, nombre:'Europa', descripcion:'Viaje a Italia Roma hotel 3 estrellas 5 noches aereo ida y vuelta', precio:380000, imagen:src="imagenes/roma.jpg", grilla: "g-col-6 g-col-md-4"},
+    {id:2, nombre:'EEUU', descripcion: 'Viaje a miami ida y vuelta hotel all inclusive 10 noches', precio:150000, imagen:src="imagenes/miami.jpg", grilla: "g-col-6 g-col-md-4"},
+    {id:3, nombre:'Argentina', descripcion:'Viaje a Bariloche ida y vuelta traslados incluidos hotel holiday inn 6 noches', precio:85000, imagen:src="imagenes/bariloche.jpg", grilla: "g-col-6 g-col-md-4"}
 ]
 const mostrarPaquetes = () => {
     for (const paquete of paquetesFiltrados){
         let contenedor = document.createElement("div");
         contenedor.innerHTML = 
         `
-          <div class="card" style="width: 18rem;">
-           
-                    <img src="${paquete.imagen}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${paquete.nombre}</h5>
-                        <p class="card-text">${paquete.descripcion}</p>
-                        <p class="card-text"><b>$ ${paquete.precio}</b></p>
-                        <a href="#" class="btn btn-primary" onclick=obtenerCantidadPaquetesComprados(${paquete.id})>Comprar</a>
-                   </div>   
-          </div>
-          <br></br>
+           <br>
+           <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        <div class="card" style="width: 18rem;">
+                
+                            <img src="${paquete.imagen}" class="card-img-top" alt="...">
+                            <div class="card-body ordenar">
+                                <h5 class="card-title">${paquete.nombre}</h5>
+                                <p class="card-text">${paquete.descripcion}</p>
+                                <p class="card-text"><b>$ ${paquete.precio}</b></p>
+                                <a href="#" class="btn btn-primary" onclick=obtenerCantidadPaquetesComprados(${paquete.id})>Comprar</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
             
-               
         `
         document.getElementById('fila').appendChild(contenedor);
       
@@ -33,7 +40,9 @@ const obtenerCantidadPaquetesComprados = (idPaquete) => {
     var elemento = document.getElementsByTagName('span')[0]
     var cantidad = parseFloat(elemento.innerHTML) + 1;
     elemento.innerHTML = cantidad;
+    alert("Agregaste un paquete a tu carrito")
     agregarPaqueteAlCarrito(idPaquete);
+   
 }
 
 
