@@ -13,7 +13,7 @@ const mostrarPaquetes = () => {
            <br>
            <div class="container">
                 <div class="row">
-                    <div class="col">
+                    <div class="${paquete.grilla}">
 
                         <div class="card" style="width: 18rem;">
                 
@@ -23,6 +23,7 @@ const mostrarPaquetes = () => {
                                 <p class="card-text">${paquete.descripcion}</p>
                                 <p class="card-text"><b>$ ${paquete.precio}</b></p>
                                 <a href="#" class="btn btn-primary" onclick=obtenerCantidadPaquetesComprados(${paquete.id})>Comprar</a>
+                                
                             </div>   
                         </div>
                     </div>
@@ -46,8 +47,15 @@ const obtenerCantidadPaquetesComprados = (idPaquete) => {
 }
 
 
-let boton = document.getElementById("btnFiltrar");
-boton.addEventListener("click", filtrarDatos);
+// let boton = document.getElementById("btnFiltrar");
+// boton.addEventListener("click", filtrarDatos);
+
+$("#btnFiltrar").click((filtrarDatos) => { 
+    console.log(filtrarDatos.target);
+});
+
+
+
 
 let inputBusqueda = document.getElementById("busqueda");
 inputBusqueda.addEventListener("keyup", busquedaPorTeclado);
@@ -81,3 +89,8 @@ const limpiarHTML = () =>{
     fila.setAttributeNode(a);
     document.body.appendChild(fila);
 }
+
+$(document).ready(function(){
+    alert("¡Encontra el mejor viaje aca!");
+    $("#blackBox").hide();
+  });
