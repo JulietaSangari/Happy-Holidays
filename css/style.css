@@ -1,0 +1,25 @@
+logoNombre{ 
+font-family: 'Open Sans', sans-serif;
+}
+.ordenar{
+    display: inline-block;
+}
+.form{ 
+    width: 50%;
+    margin: 0 auto;
+   
+   }
+.grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%; 
+    width: 80%;
+    margin: 0 auto;
+}
+
+.espacio{
+   padding-left: 10%;
+}
+.fondo{
+    background-color: aquamarine;
+}
