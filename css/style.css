@@ -21,5 +21,13 @@ font-family: 'Open Sans', sans-serif;
    padding-left: 10%;
 }
 .fondo{
-    background-color: aquamarine;
+    background-color:whitesmoke;
+}
+.imagenCarrito{
+    height: 50px; 
+    width: 50px;
+}
+.imagenes{
+ height: 100%; 
+ width: 100%;
 }

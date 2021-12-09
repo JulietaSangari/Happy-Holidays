@@ -1,4 +1,3 @@
-
 const paquetes = [
     {id:0, nombre:'Mexico', descripcion:'Viaje a Cancun, aereo ida y vuelta mas all inclusive 7 noches', precio:100000, imagen:src="imagenes/cancun.jpg"},
     {id:1, nombre:'Europa', descripcion:'Viaje a Italia Roma hotel 3 estrellas 5 noches aereo ida y vuelta', precio:380000, imagen:src="imagenes/roma.jpg"},
@@ -12,14 +11,13 @@ const mostrarPaquetes = () => {
         contenedor.innerHTML = 
         `
             <br></br>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-
-                <div class="col">
-
-                    <div class="card" style="width: 18rem;">
-            
-                        <img src="${paquete.imagen}" class="card-img-top" alt="...">
-                        <div class="card-body ordenar">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="${paquete.imagen}" class="img-fluid rounded-start imagenes" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
                             <h5 class="card-title">${paquete.nombre}</h5>
                             <p class="card-text">${paquete.descripcion}</p>
                             <p class="card-text"><b>$ ${paquete.precio}</b></p>
@@ -28,21 +26,7 @@ const mostrarPaquetes = () => {
                         </div>   
                     </div>
                 </div>
-            
-                <div class = "col">
-
-                    <div class="card" style="width: 18rem;">
-            
-                        <img src="${paquete.imagen}" class="card-img-top" alt="...">
-                        <div class="card-body ordenar">
-                            <h5 class="card-title">${paquete.nombre}</h5>
-                            <p class="card-text">${paquete.descripcion}</p>
-                            <p class="card-text"><b>$ ${paquete.precio}</b></p>
-                            <a href="#" class="btn btn-primary" onclick=obtenerCantidadPaquetesComprados(${paquete.id})>Comprar</a>
-                            
-                        </div>   
-                    </div>
-                </div>
+        
             </div>
                     
             
@@ -52,7 +36,7 @@ const mostrarPaquetes = () => {
     }
 }
 const obtenerCantidadPaquetesComprados = (idPaquete) => {
-    console.log(idPaquete);
+    // console.log(idPaquete);
     var elemento = document.getElementsByTagName('span')[0]
     var cantidad = parseFloat(elemento.innerHTML) + 1;
     elemento.innerHTML = cantidad;
@@ -62,12 +46,12 @@ const obtenerCantidadPaquetesComprados = (idPaquete) => {
 }
 
 
-// let boton = document.getElementById("btnFiltrar");
-// boton.addEventListener("click", filtrarDatos);
+let boton = document.getElementById("btnFiltrar");
+boton.addEventListener("click", filtrarDatos);
 
-$("#btnFiltrar").click((filtrarDatos) => { 
-    console.log(filtrarDatos.target);
-})
+// $("#btnFiltrar").click((filtrarDatos) => { 
+//     console.log(filtrarDatos.target);
+// })
 
 let inputBusqueda = document.getElementById("busqueda");
 inputBusqueda.addEventListener("keyup", busquedaPorTeclado);
@@ -102,6 +86,7 @@ const limpiarHTML = () =>{
     document.body.appendChild(fila);
 }
 
+  
 $(document).ready(function(){
     alert("¡Encontra el mejor viaje aca!");
     $("#blackBox").hide();
@@ -128,7 +113,7 @@ let paque = [
   const verCarrito = () => {
       
       let compras = JSON.parse(localStorage.getItem('carrito'));
-      let contenedor = document.createElement("div");
+    
       
       for (const paque of compras){
           let contenedor = document.createElement("div");
@@ -140,21 +125,5 @@ let paque = [
       }
       
   }
-  const URLGET = "https://jsonplaceholder.typicode.com/posts"
-
-  $("body").prepend('<button id="btn1">GET</button>');
   
-  $("#btn1").click(() => { 
-      $.get(URLGET, function (respuesta, estado) {
-            if(estado === "success"){
-              let datos = respuesta;
-              for (const dato of datos) {
-                $("body").prepend(`<div>
-                                     <h3>${dato.id} - ${dato.title}</h3>
-                                     <p> ${dato.body}</p>
-                                    </div>`);
-              }  
-            }
-      });
-  });
   
